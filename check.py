@@ -28,11 +28,14 @@ class checkout_management:
             Returns:
                 str: Confirmation message of book check-out or unavailability message.
         """
-        book_availability=book_management().find_book(isbn=isbn)[0]["availabilty"]
+        try:
+            book_availability=book_management().find_book(isbn=isbn)[0]["availability"]
+        except:
+            book_availability='0'
         if(book_availability=='0'):
             return("\nBook Unavailable.\n")
         self.storage.add_record(record={"user_id": user_id, "isbn": isbn},unique_criteria={"user_id": user_id, "isbn": isbn})
-        book_management().modify_book(isbn=isbn,availabilty="0")
+        book_management().modify_book(isbn=isbn,availability="0")
         return "\n\nBook Checked-Out\n"
 
     def chechkin_book(self, user_id, isbn):
@@ -47,7 +50,7 @@ class checkout_management:
         deleted_count=(self.storage.delete_records(criteria={"user_id": user_id, "isbn": isbn}))
         if(deleted_count<1):
             return ("\n\nUser id or ISBN is incorrect\n")
-        book_management().modify_book(isbn=isbn, availabilty="1")
+        book_management().modify_book(isbn=isbn, availability="1")
         return "\n\nBook Checked-in Successfully\n"
 
     def user_specific_possessions(self, user_id):
