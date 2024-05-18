@@ -1,0 +1,31 @@
+{
+    "Users": [
+        {
+            "name": "Arvind Agarwal",
+            "user_id": "9618",
+            "timestamp": "2024-05-18 16:08:28"
+        }
+    ],
+    "Books": [
+        {
+            "title": "Pride And Prejudice",
+            "author": "Jane Austen",
+            "isbn": "101",
+            "availabilty": "0",
+            "timestamp": "2024-05-18 18:45:47"
+        },
+        {
+            "title": "Harry Porter",
+            "author": "JK Rowling",
+            "isbn": "123",
+            "availabilty": "1",
+            "timestamp": "2024-05-18 18:45:04"
+        }
+    ],
+    "Orders": [
+        {
+            "user_id": "9618",
+            "isbn": "101"
+        }
+    ]
+}
