@@ -13,7 +13,7 @@ class book_management:
             __init__(): Initialize the BookManagement class.
             add_book(title, author, isbn): Add a new book to the database.
             list_books(): List all books from the database.
-            modify_book(isbn, title="", availabilty="1"): Modify book details in the database.
+            modify_book(isbn, title="", availability="1"): Modify book details in the database.
             delete_book(isbn): Delete a book from the database.
             find_book(isbn): Find a book by ISBN.
     """
@@ -38,7 +38,7 @@ class book_management:
         """
         current_time = utils().get_current_time()
         unique_criteria={"isbn": isbn}
-        value=self.storage.add_record(record={"title": title, "author": author, "isbn": isbn, "availabilty": "1", "timestamp": current_time},unique_criteria=unique_criteria)
+        value=self.storage.add_record(record={"title": title, "author": author, "isbn": isbn, "availability": "1", "timestamp": current_time},unique_criteria=unique_criteria)
         if (not value):
             return -1
         return 1
@@ -52,7 +52,7 @@ class book_management:
         records=self.storage.get_records()
         return records
 
-    def modify_book(self, isbn, title="", availabilty="1"):
+    def modify_book(self, isbn, title="", availability="1"):
         """
             Modify book details in the database.
             Args:
@@ -65,8 +65,8 @@ class book_management:
         updates={"timestamp":current_time}
         if (title != ""):
             updates["title"] = title
-        if (availabilty != None):
-            updates["availabilty"] = availabilty
+        if (availability != None):
+            updates["availability"] = availability
         self.storage.modify_records(criteria=criteria, updates=updates)
 
     def delete_book(self, isbn):
