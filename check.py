@@ -28,7 +28,7 @@ class checkout_management:
             Returns:
                 str: Confirmation message of book check-out or unavailability message.
         """
-        book_availability=book_management().find_book(isbn=isbn)[0]["availabilty"]
+        book_availability=book_management().find_book(isbn=isbn)[0]["availability"]
         if(book_availability=='0'):
             return("\nBook Unavailable.\n")
         self.storage.add_record(record={"user_id": user_id, "isbn": isbn},unique_criteria={"user_id": user_id, "isbn": isbn})
