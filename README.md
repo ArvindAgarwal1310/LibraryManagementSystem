@@ -58,7 +58,7 @@ The database schema consists of two main tables: `Books` and `Users`. Below is t
 ```jsx
 Output
 +---------------------+-------------+------------+---------------+---------------------+
-| title               | author      |       isbn |   availabilty | timestamp           |
+| title               | author      |       isbn |  availability | timestamp           |
 +=====================+=============+============+===============+=====================+
 | Pride And Prejudice | Jane Austen |        101 |             0 | 2024-05-18 18:45:47 |
 +---------------------+-------------+------------+---------------+---------------------+
